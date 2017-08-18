@@ -1,4 +1,4 @@
-FROM node:0.12.7-wheezy
+FROM node:8.4.0-wheezy
 
 MAINTAINER YeTing "me@yeting.info"
 
