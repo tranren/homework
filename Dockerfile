@@ -1,4 +1,4 @@
-FROM nodesource/node:6
+FROM nodesource/node:8
 
 MAINTAINER YeTing "me@yeting.info"
 
