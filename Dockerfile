@@ -26,7 +26,7 @@ RUN npm install --allow-root
 
 COPY . /app/
 
-RUN gulp build
+RUN ng build
 
 RUN cp -R /app/dist/*  /usr/share/nginx/html
 
