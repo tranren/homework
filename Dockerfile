@@ -10,8 +10,6 @@ RUN npm i && mkdir /ng-app && cp -R ./node_modules ./ng-app
 
 WORKDIR /ng-app
 
-COPY . .
-
 ## Build the angular app in production mode and store the artifacts in dist folder
 RUN ng build
 
