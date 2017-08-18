@@ -4,6 +4,7 @@
 FROM node:8-alpine as builder
 
 WORKDIR /app
+RUN npm install -g @angular/cli
 
 COPY ./package.json /app/
 RUN npm install
