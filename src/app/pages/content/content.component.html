@@ -1,0 +1,109 @@
+<content>
+  <div class="c-wrap">
+    <ul class="nav nav-tabs">
+      <li class="tab">
+        <a href="#" [ngClass]="system.model==='dashboard'?'actived':''" (click)="cutTabs('dashboard')">dashboard</a>
+      </li>
+      <li class="tab">
+        <a href="#" [ngClass]="system.model==='cruise'?'actived':''" (click)="cutTabs('cruise')">my cruise</a>
+      </li>
+      <li class="tab">
+        <a href="#" [ngClass]="system.model==='agents'?'actived':''" (click)="cutTabs('agents')">agents</a>
+      </li>
+      <li class="tab last">
+        <a href="#" [ngClass]="system.model==='help'?'actived':''" (click)="cutTabs('help')">help</a>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs-content" [ngSwitch]="system.model">
+    <div class="tab-panel" *ngSwitchCase="'dashboard'">
+      <div class="tc-wrap">
+        <span>{{system.model}}</span>
+      </div>
+      dashboard
+    </div>
+    <div class="tab-panel" *ngSwitchCase="'cruise'">
+      <div class="tc-wrap">
+        <span>{{system.model}}</span>
+      </div>
+      cruise
+    </div>
+    <div class="tab-panel" *ngSwitchCase="'agents'">
+      <div class="tc-wrap">
+        <span>{{system.model}}</span>
+        <ul>
+          <li class="a-type">
+            <a href="#" [ngClass]="system.type==='all'?'actived':''" (click)="cutType('all')">all</a>
+          </li>
+          <li class="a-type">
+            <a href="#" [ngClass]="system.type==='physical'?'actived':''" (click)="cutType('physical')">physical</a>
+          </li>
+          <li class="a-type">
+            <a href="#" [ngClass]="system.type==='virtual'?'actived':''" (click)="cutType('virtual')">virtual</a>
+          </li>
+        </ul>
+      </div>
+      <div class="tc-content">
+        <ul class="c-items">
+          <li class="c-item" *ngFor="let item of system.data.list;let itemIndex=index;"
+              [ngClass]="item.status==='idle'?'idle':'building'">
+            <div class="img">
+            </div>
+            <div>
+              <div class="system-info">
+                <span class="url">a.node1test.com</span>
+                <span>| idle</span>
+                <span>| 192.168.1.2</span>
+                <span>| /var/lib/cruise-agent</span>
+              </div>
+              <div class="res-wrap">
+                <a href="#" (click)="showPop(itemIndex,$event)">
+                  + Specify Resoources | Resources:
+                </a>
+                <span *ngFor="let resource of item.resources;let resourceIndex = index;">{{resource}} <i
+                  class="fa fa-times-circle" (click)="removeResource(itemIndex,resourceIndex)"></i></span>
+                <ng-template [ngIf]="item.status==='idle'">
+                  <span class="right"><i class="fa fa-ban"></i>Deny</span>
+                </ng-template>
+              </div>
+            </div>
+            <ng-template [ngIf]="item.addResourceStatus">
+              <div class="add-resource">
+                <h5>(separate multiple resources name with commas)</h5>
+                <input placeholder="mysql,ubuntu" [(ngModel)]="item.inputVal">
+                <div class="btns">
+                  <button class="btn" (click)="addResource(itemIndex,resourceIndex)">Add resources</button>
+                  <button class="btn" (click)="closePop(itemIndex,resourceIndex)">Close</button>
+                </div>
+              </div>
+            </ng-template>
+          </li>
+        </ul>
+        <i class="line"></i>
+        <div class="system-other-info">
+          <div class="summary">
+            <h2>Summary</h2>
+            <ul>
+              <li *ngFor="let item of system.data.summary">
+                <span class="name">{{item.name}}</span>
+                <span>{{item.num}}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="History">
+            <h2>History</h2>
+            <ul>
+              <li *ngFor="let item of system.data.history">{{item.name}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" *ngSwitchCase="'help'">
+      <div class="tc-wrap">
+        <span>{{system.model}}</span>
+      </div>
+      help
+    </div>
+  </div>
+</content>

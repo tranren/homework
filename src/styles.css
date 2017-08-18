@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~normalize.css/normalize.css';
+@import "~font-awesome/css/font-awesome.min.css";
+*{
+  font-size: 14px;
+}
+a {
+  text-transform: none;
+  text-decoration: none;
+  color: black;
+}
+ul,ol,li{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.last {
+  margin: 0 !important;
+  padding: 0 !important;
+}

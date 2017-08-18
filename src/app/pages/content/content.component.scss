@@ -1,0 +1,218 @@
+.c-wrap {
+  height: 44px;
+  display: block;
+}
+
+.nav {
+  padding-left: 0;
+  margin-bottom: 0;
+  float: right;
+  margin-right: -2px;
+  > li {
+    float: left;
+    margin-right: 10px;
+    a.actived {
+      background: #606060;
+      color: white;
+    }
+    a {
+      position: relative;
+      display: block;
+      padding: 10px 15px;
+      background-color: #fff;
+      border: 2px solid #0a0a0a;
+      border-bottom-color: transparent;
+      line-height: 1.42857143;
+      border-radius: 12px 12px 0 0;
+      border-bottom: 0;
+    }
+  }
+}
+
+.tabs-content {
+  background: #fff;
+  border: 2px solid #242424;
+  width: 100%;
+  min-height: 50px;
+  .tab-panel {
+    .tc-wrap {
+      height: 50px;
+      background: #606060;
+      line-height: 50px;
+      color: white;
+      span {
+        float: left;
+        margin-right: 30px;
+        margin-left: 10px;
+      }
+      ul {
+        li {
+          float: left;
+          margin-right: 20px;
+          a {
+            border: 1px solid #3d3d3d;
+            padding: 5px 15px;
+            border-radius: 15px;
+            color: white;
+            background: #9a9a9a;
+          }
+          a.actived {
+            background: #dadada;
+            color: #606060;
+          }
+        }
+      }
+    }
+    .tc-content {
+      position: relative;
+      display: flex;
+      i.line {
+        position: absolute;
+        height: 100%;
+        border-left: 2px solid #636363;
+        margin-left: 74%;
+      }
+      .c-items {
+        width: 70%;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        float: left;
+        .c-item {
+          margin-bottom: 20px;
+          border: 2px solid #4c5347;
+          padding: 10px 20px;
+          border-radius: 8px;
+          .img {
+            width: 35px;
+            height: 35px;
+            float: left;
+            border-radius: 50%;
+            background: #929292;
+            border-style: none;
+            margin-right: 20px;
+          }
+          .system-info {
+            margin-bottom: 5px;
+            .url {
+              margin-right: 20px;
+            }
+          }
+          .res-wrap {
+            position: relative;
+            span {
+              margin-right: 20px;
+              line-height: 26px;
+              i {
+                color: #8e9087;
+                cursor: pointer;
+                font-size: 16px;
+              }
+            }
+            .right {
+              float: right;
+              margin-right: 0;
+              i {
+                color: #2d4223
+              }
+            }
+          }
+        }
+        .c-item.idle {
+          background: rgb(203, 231, 183);
+        }
+        .c-item.building {
+          background: rgb(255, 252, 185);
+        }
+      }
+      .system-other-info {
+        padding: 10px 20px;
+        float: left;
+        width: 21.9%;
+        > div ul {
+          width: 100%;
+          border-top: 2px solid #d0d0d0;
+          padding-top: 10px;
+          li {
+            margin-bottom: 10px;
+          }
+        }
+        .summary {
+          margin-bottom: 40px;
+          li {
+            .name {
+              width: 100px;
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.add-resource {
+  width: 600px;
+  height: 100px;
+  border: 2px solid #4f3806;
+  background: #e0eed5;
+  position: absolute;
+  z-index: 1;
+  margin-top: 26px;
+  border-radius: 15px;
+  padding: 20px;
+  h5 {
+    margin: 0;
+  }
+  input {
+    width: 100%;
+    border: 2px solid #717673;
+    margin-top: 10px;
+    height: 36px;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+  .btns {
+    .btn {
+      outline:none;
+      height: 30px;
+      border-radius: 20px;
+      border: 2px solid #161b16;
+      padding: 0 10px;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+  }
+}
+.add-resource:before {
+  box-sizing: content-box;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: -25px;
+  left: 44px;
+  padding: 0;
+  border-bottom: 25px solid #4f3806;
+  border-top: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  display: block;
+  content: '';
+  z-index: 12;
+}
+.add-resource:after {
+  box-sizing: content-box;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: -22px;
+  left: 47px;
+  padding: 0;
+  border-bottom: 22px solid #e0eed5;
+  border-top: 0;
+  border-left: 22px solid transparent;
+  border-right: 22px solid transparent;
+  display: block;
+  content: '';
+  z-index: 12;
+}
