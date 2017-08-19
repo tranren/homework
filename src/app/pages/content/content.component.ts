@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {HomeworkService} from '../../homework.service'
 
 @Component({
   selector: 'app-content',
@@ -6,60 +7,11 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
-  system = {
+  private system = {
     model: 'agents',
     type: 'physical',
     data: {
-      list: [
-        {
-          imgUrl: '',
-          url: 'a.node1test.com',
-          status: 'idle',
-          ip: '192.168.1.2',
-          path: '/var/lib/cruise-agent',
-          addResourceStatus: false,
-          inputVal: '',
-          resources: [
-            'ubuntu'
-          ]
-        },
-        {
-          imgUrl: '',
-          url: 'a.node1test.com',
-          status: 'building',
-          ip: '192.168.1.2',
-          path: '/var/lib/cruise-agent',
-          addResourceStatus: false,
-          inputVal: '',
-          resources: [
-            'ubuntu'
-          ]
-        },
-        {
-          imgUrl: '',
-          url: 'a.node1test.com',
-          status: 'idle',
-          ip: '192.168.1.2',
-          path: '/var/lib/cruise-agent',
-          addResourceStatus: false,
-          inputVal: '',
-          resources: [
-            'ubuntu'
-          ]
-        },
-        {
-          imgUrl: '',
-          url: 'a.node1test.com',
-          status: 'building',
-          ip: '192.168.1.2',
-          path: '/var/lib/cruise-agent',
-          addResourceStatus: false,
-          inputVal: '',
-          resources: [
-            'ubuntu'
-          ]
-        }
-      ],
+      list: [],
       summary: [
         {
           name: 'building',
@@ -87,10 +39,14 @@ export class ContentComponent implements OnInit {
     }
   }
 
-  constructor() {
+  constructor(private homeworkService: HomeworkService) {
   }
 
   ngOnInit() {
+    this.homeworkService.getList()
+      .then((result) => {
+        this.system.data.list = result;
+      })
   }
 
   /**

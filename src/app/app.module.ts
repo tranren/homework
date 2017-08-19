@@ -1,12 +1,15 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http'
+
 import {AppComponent} from './app.component';
 import {HomeComponent} from './pages/home/home.component';
 import {HeaderComponent} from './pages/header/header.component';
 import {ContentComponent} from './pages/content/content.component';
 
-import {TabsModule} from 'ngx-bootstrap';
+import {HomeworkService} from './homework.service'
+
 
 @NgModule({
   declarations: [
@@ -16,12 +19,12 @@ import {TabsModule} from 'ngx-bootstrap';
     ContentComponent
   ],
   imports: [
-    TabsModule.forRoot(),
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [HomeworkService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
