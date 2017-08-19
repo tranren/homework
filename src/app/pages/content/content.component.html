@@ -51,10 +51,10 @@
             </div>
             <div>
               <div class="system-info">
-                <span class="url">a.node1test.com</span>
-                <span>| idle</span>
-                <span>| 192.168.1.2</span>
-                <span>| /var/lib/cruise-agent</span>
+                <span class="url">{{item.url}}</span>
+                <span>| {{item.status}}</span>
+                <span>| {{item.ip}}</span>
+                <span>| {{item.path}}</span>
               </div>
               <div class="res-wrap">
                 <a href="#" (click)="showPop(itemIndex,$event)">
